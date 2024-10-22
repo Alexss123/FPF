@@ -27,11 +27,11 @@ def verificar_automviles():
         st.write(f"El automóvil que menos contaminó tiene {menos_contaminacion}")
         st.write(f"El automóvil que más contaminó tiene {mas_contaminacion}")
 
-    # Opción para reiniciar los datos
+    #Opción para reiniciar los datos
     if st.button("Reiniciar datos"):
         st.session_state.puntos_contaminantes = []
         st.success("Datos reiniciados correctamente")
 
-# Ejecutar la función
+#Ejecutar la función
 if __name__ == "__main__":
     verificar_automoviles()
