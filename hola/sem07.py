@@ -3,7 +3,7 @@ def mostrar_menu():
     st.title("Ejemplo de Menú")
     st.write("Selecciona una opción del menú")
     
-    menu = ["Archivo", "Editar", "Ver", "Salir"]
+    menu = ["Archivo", "alex el mas guapo del mundo", "Ver", "Salir"]
     seleccion = ""
     
     seleccion = st.radio("Menú", menu)
