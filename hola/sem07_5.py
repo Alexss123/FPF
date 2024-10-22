@@ -1,4 +1,5 @@
 import streamlit as st 
+
 #Funcion principal para verificar automoviles
 def verificar_automviles():
     st.title("Centro de verificacion de automoviles")
