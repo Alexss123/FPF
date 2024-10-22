@@ -22,7 +22,7 @@ def verificar_automviles():
         menos_contaminacion = min(st.session_state.puntos_contaminantes)
         mas_contaminacion = max(st.session_state.puntos_contaminantes)
 
-        # Mostrar los resultados
+        #Mostrar los resultados
         st.write(f"Promedio de puntos contaminantes: {promedio:.2f}")
         st.write(f"El automóvil que menos contaminó tiene {menos_contaminacion}")
         st.write(f"El automóvil que más contaminó tiene {mas_contaminacion}")
