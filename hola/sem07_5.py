@@ -1,15 +1,15 @@
 import streamlit as st 
 
 #Funcion principal para verificar automoviles
-def verificar_automviles():
-    st.title("Centro de verificacion de automoviles")
+def verificar_automoviles():
+    st.title("Centro de Verificacion de automoviles")
 
     #Lista para almacenar los puntos contaminantes
     if 'puntos_contaminantes' not in st.session_state:
         st.session_state.puntos_contaminantes = []
 
-    #Imput para los puntos contaminantes del automvil
-    puntos = st.number_input("Ingrese los puntos contaminantes del automovil", min_value=0.0, step=0.1 )
+    #Imput para los puntos contaminantes del automovil
+    puntos = st.number_input("Ingrese los puntos contaminantes del automovil", min_value=0.0, step=0.1)
 
     #Boton para registrar el automovil
     if st.button("Registrar automovil"):
