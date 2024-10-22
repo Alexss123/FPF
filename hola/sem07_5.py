@@ -6,7 +6,7 @@ def verificar_automviles():
 
     #Lista para almacenar los puntos contaminantes
     if 'puntos_contaminantes' not in st.session_state
-    st.session_state.puntos_contaminantes = []
+        st.session_state.puntos_contaminantes = []
 
     #Imput para los puntos contaminantes del automvil
     puntos = st.number_input("Ingrese los puntos contaminantes del automovil", min_value=0.0, step=0.1 )
