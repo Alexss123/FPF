@@ -14,9 +14,9 @@ def verificar_automviles():
     #Boton para registrar el automovil
     if st.button("Registrar automovil"):
         st.session_state.puntos_contaminantes.append(puntos)
-        st.success(f"Automvil registrado con {puntos} puntos contaminantes")
+        st.success(f"Automovil registrado con {puntos} puntos contaminantes")
 
-    #Mostrar los datos registrados hasta el momento
+    #Mostrar los datos registrado hasta el momento
     if len(st.session_state.puntos_contaminantes) > 0 and st.button("Calcular resultados"):
         promedio = sum(st.session_state.puntos_contaminantes) / len(st.session_state.puntos_contaminantes)
         menos_contaminacion = min(st.session_state.puntos_contaminantes)
