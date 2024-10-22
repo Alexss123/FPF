@@ -1,3 +1,4 @@
+import streamlit as st 
 def mostrar_menu():
     st.title("Ejemplo de Menú")
     st.write("Selecciona una opción del menú")
