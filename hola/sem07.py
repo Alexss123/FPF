@@ -1,6 +1,6 @@
 import streamlit as st 
 def mostrar_menu():
-    st.title("Diego se baña?")
+    st.title("BRIANA se baña?")
     st.write("Selecciona la opcion correcta")
     
     menu = ["Obviamente que no", "Eso nunca pasara", "Las dos anteriores", "Que se bañe de una vez"]
