@@ -1,37 +1,40 @@
-import streamlit as st 
+import streamlit as st
 
-#Funcion principal para verificar automoviles
-def verificar_automoviles():
-    st.title("Centro de Verificacion de automoviles")
+# Título de la aplicación
+st.title("Cálculo de Suma y Media de Números")
 
-    #Lista para almacenar los puntos contaminantes
-    if 'puntos_contaminantes' not in st.session_state:
-        st.session_state.puntos_contaminantes = []
+# Estado de sesión para almacenar números
+if 'numeros' not in st.session_state:
+    st.session_state.numeros = []
 
-    #Imput para los puntos contaminantes del automovil
-    puntos = st.number_input("Ingrese los puntos contaminantes del automovil", min_value=0.0, step=0.1)
+# Formulario para ingresar números
+with st.form("input_form"):
+    numero = st.number_input("Ingresa un número (0 para finalizar):", value=0, step=1)
+    submit = st.form_submit_button("Añadir número")
 
-    #Boton para registrar el automovil
-    if st.button("Registrar automovil"):
-        st.session_state.puntos_contaminantes.append(puntos)
-        st.success(f"Automovil registrado con {puntos} puntos contaminantes")
+    # Si se envía el formulario
+    if submit:
+        if numero != 0:
+            st.session_state.numeros.append(numero)
+            st.success(f"Número {numero} añadido a la lista.")
+        else:
+            st.warning("Has ingresado un 0, se calcularán la suma y la media de los números.")
 
-    #Mostrar los datos registrado hasta el momento
-    if len(st.session_state.puntos_contaminantes) > 0 and st.button("Calcular resultados"):
-        promedio = sum(st.session_state.puntos_contaminantes) / len(st.session_state.puntos_contaminantes)
-        menos_contaminacion = min(st.session_state.puntos_contaminantes)
-        mas_contaminacion = max(st.session_state.puntos_contaminantes)
+# Si se ha ingresado un 0, calcular la suma y la media
+if 0 in st.session_state.numeros:
+    st.session_state.numeros.remove(0)  # Remueve el cero si se ingresó
 
-        #Mostrar los resultados
-        st.write(f"Promedio de puntos contaminantes: {promedio:.2f}")
-        st.write(f"El automóvil que menos contaminó tiene {menos_contaminacion}")
-        st.write(f"El automóvil que más contaminó tiene {mas_contaminacion}")
+    if len(st.session_state.numeros) > 0:
+        suma = sum(st.session_state.numeros)
+        media = suma / len(st.session_state.numeros)
+        
+        st.write("### Resultados:")
+        st.write(f"Suma de los números ingresados: {suma}")
+        st.write(f"Media de los números ingresados: {media:.2f}")
+    else:
+        st.write("No se han ingresado números distintos de cero.")
 
-    #Opción para reiniciar los datos
-    if st.button("Reiniciar datos"):
-        st.session_state.puntos_contaminantes = []
-        st.success("Datos reiniciados correctamente")
-
-#Ejecutar la función
-if __name__ == "__main__":
-    verificar_automoviles()
+# Botón para reiniciar los datos
+if st.button("Reiniciar"):
+    st.session_state.numeros = []
+    st.success("Los datos han sido reiniciados.")
